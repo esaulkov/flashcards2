@@ -3,23 +3,28 @@
   <div class="form-group">
     <%= f.input :locale, priority: I18n.default_locale,
                 collection: I18n.available_locales, include_blank: false,
-                prompt: 'Выберите локаль',
-                label: 'Локаль',
+                prompt: t('profile.locale_prompt'),
+                label: t('profile.locale'),
                 input_html: { class: 'form-control', required: true } %>
   </div>
   <div class="form-group">
-    <%= f.input :email, as: :email, label: 'E-mail',
+    <%= f.input :email, 
+                as: :email,
+                label: 'E-mail',
                 input_html: { class: 'form-control', required: true,
                               autofocus: true } %>
   </div>
   <div class="form-group">
-    <%= f.input :password, as: :password, label: 'Пароль',
+    <%= f.input :password,
+                as: :password,
+                label: t('profile.password'),
                 input_html: { class: 'form-control', required: true } %>
   </div>
   <div class="form-group">
-    <%= f.input :password_confirmation, as: :password,
-                label: 'Подтверждение пароля',
+    <%= f.input :password_confirmation,
+                as: :password,
+                label: t('profile.password_confirmation'),
                 input_html: { class: 'form-control', required: true } %>
   </div>
-  <%= f.button :submit, 'Сохранить', class: 'btn btn-default' %>
+<%= f.button :submit, t('profile.save'), class: 'btn btn-default' %>
 <% end %>
