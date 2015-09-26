@@ -6,11 +6,9 @@ class Card < ActiveRecord::Base
   validates :user_id, presence: true
   before_validation :set_review_date_as_now, on: :create
   validate :texts_are_not_equal
-  validates :original_text, :translated_text, :review_date,
-            presence: { message: t('messages.card.fill_field') }
-  validates :user_id, presence: { message: t('messages.card.association_error') }
-  validates :block_id,
-            presence: { message: t('messages.card.choose_deck') }
+  validates :original_text, :translated_text, :review_date, presence: true
+  validates :user_id, presence: true
+  validates :block_id, presence: true
   validates :interval, :repeat, :efactor, :quality, :attempt, presence: true
 
   mount_uploader :image, CardImageUploader
@@ -52,7 +50,7 @@ class Card < ActiveRecord::Base
 
   def texts_are_not_equal
     if full_downcase(original_text) == full_downcase(translated_text)
-      errors.add(:original_text, t('messages.card.duplicate_error'))
+      errors.add(:original_text, :duplicate_error)
     end
   end
 

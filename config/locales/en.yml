@@ -78,7 +78,6 @@ en:
     submit:
       create: "Save %{model}"
       update: "Save %{model}"
-
   activerecord:
     models:
       card:
@@ -96,15 +95,23 @@ en:
         too_short: 'Short value.'
         confirmation: 'Values do not match.'
         taken: 'Not a unique value.'
+      models:
+        block:
+          blank: 'You should fill the field.'
+        card:
+          attributes:
+            user_id:
+              blank: 'Association error.'
+            block_id:
+              blank: 'Choose the deck from the list.'
+            original_text:
+              duplicate_error: 'Input values should be different.'
+          blank: 'You should fill the field.'
+        user:
+          inclusion: 'Choose the locale from the list.'
   messages:
     user:
-      choose_locale: 'Choose the locale from the list.'
       user_created: 'User was created.'
       user_updated: 'User profile was updated successfully.'
-    card:
-      fill_field: 'You should fill the field.'
-      association_error: 'Association error.'
-      choose_deck: 'Choose the deck from the list.'
-      duplicate_error: 'Input values should be different.'
     block:
       fill_field: 'You should fill the field.'

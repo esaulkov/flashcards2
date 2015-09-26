@@ -80,17 +80,8 @@ ru:
       update: "Save %{model}"
   messages:
     user:
-      choose_locale: 'Выберите локаль из выпадающего списка.'
       user_created: 'Пользователь успешно удален.'
       user_updated: 'Профиль пользователя успешно удален.'
-    card:
-      fill_field: 'Необходимо заполнить поле.'
-      association_error: 'Ошибка ассоциации.'
-      choose_deck: 'Выберите колоду из выпадающего списка.'
-      duplicate_error: 'Вводимые значения должны отличаться.'
-    block:
-      fill_field: 'Необходимо заполнить поле.'
-
   activerecord:
     models:
       card:
@@ -109,3 +100,17 @@ ru:
         confirmation: 'Значения не совпадают.'
         taken: 'Неуникальное значение.'
         invalid: 'Неверный формат.'
+      models:
+        block:
+          blank: 'Необходимо заполнить поле.'
+        card:
+          attributes:
+            user_id:
+              blank: 'Ошибка ассоциации.'
+            block_id:
+              blank: 'Выберите колоду из выпадающего списка.'
+            original_text:
+              duplicate_error: 'Вводимые значения должны отличаться.'
+          blank: 'Необходимо заполнить поле.'
+        user:
+          inclusion: 'Выберите локаль из выпадающего списка.'
