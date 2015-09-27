@@ -78,6 +78,8 @@ en:
     submit:
       create: "Save %{model}"
       update: "Save %{model}"
+      user:
+        create: "Sign up"
   activerecord:
     models:
       card:

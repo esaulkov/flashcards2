@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
 
     if locale && I18n.available_locales.include?(locale.to_sym)
       session[:locale] = I18n.locale = locale
+      logger.debug "* Locale set to '#{I18n.locale}'"
     end
+  end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
   end
 end

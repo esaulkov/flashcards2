@@ -21,11 +21,6 @@ ru:
     prompts:
       card:
         block_id: 'Выберите колоду'
-    buttons:
-      card:
-        submit: 'Сохранить'
-      block:
-        submit: 'Сохранить'
     # hints:
     #   defaults:
     #     username: 'User name to sign in.'
