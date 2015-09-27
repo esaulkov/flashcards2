@@ -15,11 +15,11 @@ class Home::OauthsController < Home::BaseController
         auto_login(@user)
         redirect_to trainer_path,
                     notice: (t 'log_in_is_successful_provider_notice',
-                             provider: provider.titleize)
+                            provider: provider.titleize)
       rescue
         redirect_to new_user_session_path,
                     alert: (t 'log_in_failed_provider_alert',
-                            provider: provider.titleize)
+                           provider: provider.titleize)
       end
     end
   end
