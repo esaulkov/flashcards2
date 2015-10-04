@@ -7,7 +7,8 @@ class Card < ActiveRecord::Base
   before_validation :set_review_date_as_now, on: :create
   validate :texts_are_not_equal
   validates :original_text, :translated_text, :review_date, :user_id,
-    :block_id, :interval, :repeat, :efactor, :quality, :attempt, presence: true
+            :block_id, :interval, :repeat, :efactor, :quality, :attempt,
+            presence: true
 
   mount_uploader :image, CardImageUploader
 
