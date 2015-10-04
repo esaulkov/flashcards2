@@ -6,6 +6,7 @@ describe 'password authentication' do
   describe 'register' do
     before do
       visit root_path
+      click_link 'ru'
     end
 
     it 'register TRUE' do
@@ -20,14 +21,14 @@ describe 'password authentication' do
 
     it 'e-mail FALSE' do
       register('test', '12345', '12345', 'Зарегистрироваться')
-      expect(page).to have_content 'Не верный формат.'
+      expect(page).to have_content 'Неверный формат.'
     end
 
     it 'e-mail has already been taken' do
       register('test@test.com', '12345', '12345', 'Зарегистрироваться')
       click_link 'Выйти'
       register('test@test.com', '12345', '12345', 'Зарегистрироваться')
-      expect(page).to have_content 'Не уникальное значение.'
+      expect(page).to have_content 'Неуникальное значение.'
     end
 
     it 'password is too short' do
@@ -45,6 +46,7 @@ describe 'password authentication' do
     before do
       create(:user)
       visit root_path
+      click_link 'ru'
     end
 
     it 'require_login root' do
@@ -87,25 +89,25 @@ describe 'password authentication' do
 
     it 'register TRUE' do
       click_link 'en'
-      register('test@test.com', '12345', '12345', 'Sing up')
+      register('test@test.com', '12345', '12345', 'Sign up')
       expect(page).to have_content 'User created successfully.'
     end
 
     it 'default locale' do
       click_link 'en'
-      register('test@test.com', '12345', '12345', 'Sing up')
+      register('test@test.com', '12345', '12345', 'Sign up')
       user = User.find_by_email('test@test.com')
       expect(user.locale).to eq('en')
     end
 
     it 'available locale' do
       click_link 'en'
-      register('test@test.com', '12345', '12345', 'Sing up')
+      register('test@test.com', '12345', '12345', 'Sign up')
       click_link 'User profile'
       fill_in 'user[password]', with: '12345'
       fill_in 'user[password_confirmation]', with: '12345'
-      click_button 'Сохранить'
-      expect(page).to have_content 'Профиль пользователя успешно обновлен.'
+      click_button 'Save'
+      expect(page).to have_content 'User profile was updated successfully.'
     end
 
     it 'authentication TRUE' do

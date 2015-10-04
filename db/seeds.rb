@@ -1,20 +1,27 @@
-# This file should contain all the record creation needed to seed the database
-# with its default values.
-# The data can then be loaded with the rake db:seed
-# (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-require 'nokogiri'
 require 'open-uri'
 
-doc = Nokogiri::HTML(open('http://www.learnathome.ru/blog/100-beautiful-words'))
+Card.delete_all
+Block.delete_all
+User.delete_all
 
-doc.search('//table/tbody/tr').each do |row|
-  original = row.search('td[2]/p')[0].content.downcase
-  translated = row.search('td[1]/p')[0].content.downcase
-  Card.create(original_text: original, translated_text: translated, user_id: 17)
+user = User.create(
+  email: 'example@test.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+
+block = user.blocks.create(title: 'Test deck')
+
+page_url = 'http://www.learnathome.ru/blog/100-beautiful-words'
+doc = Nokogiri::HTML(open(page_url))
+
+doc.css('table tbody tr').each do |row|
+  original = row.css('td')[1].css('p')[0].text
+  translated = row.css('td')[0].css('p')[0].text
+  block.cards.create(
+    original_text: original,
+    translated_text: translated,
+    review_date: DateTime.current,
+    user_id: user.id
+  )
 end

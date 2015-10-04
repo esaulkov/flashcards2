@@ -1,6 +1,8 @@
 language: ruby
-rvm: 2.1.5
+rvm: 2.2
 env: RAILS_ENV=test
+notifications:
+  email: false
 script:
   - bundle exec rspec
 addons:

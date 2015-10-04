@@ -1,4 +1,5 @@
 en:
+  app_title: 'Flashcards'
   welcome: 'Welcome.'
   original_text_label: 'Original'
   translated_text_label: 'Translation'
@@ -10,10 +11,10 @@ en:
   email_label: 'E-mail'
   password_label: 'Password'
   password_confirmation_label: 'Password Confirmation'
-  sing_up_label: 'Sing up'
+  sign_up_label: 'Sign up'
   log_in_label: 'Log in'
-  sing_in_label: 'Sing in'
-  all_decks_label: 'All deck'
+  sign_in_label: 'Sign in'
+  all_decks_label: 'All decks'
   add_deck_label: 'Add deck'
   all_cards_label: 'All cards'
   add_card_label: 'Add card'
@@ -34,13 +35,85 @@ en:
       Translated text: %{translated_text}. Please try again."
   log_in_is_successful_provider_notice: "Log in of your account %{provider} is successful."
   log_out_is_successful_notice: 'Log out is successful.'
+  log_in_failed_provider_alert: "Log in with %{provider} account is failed."
   log_out_failed_provider_alert: "Log out of your account %{provider} failed."
+  record_not_found_alert: 'Page has not found.'
   please_log_in: 'Please log in.'
-
+  profile:
+    title: 'Profile'
+    locale: 'Locale'
+    locale_prompt: 'Choose the locale'
+    password: 'Password'
+    password_confirmation: 'Password confirmation'
+    save: 'Save'
+  cards:
+    new:
+      title: 'Add card'
+    edit:
+      title: 'Edit card'
+    index:
+      original_text: 'Original text'
+      translated_text: 'Translated text'
+      review_date: 'Review date'
+      edit_card: 'Edit'
+      delete_card: 'Delete'
+      confirm: 'Are you sure?'
+  blocks:
+    new:
+      title: 'Add deck'
+    index:
+      name: 'Name'
+      make_current: 'Make current'
+      make_usual: 'Make usual'
+      edit: 'Edit'
+      delete: 'Delete'
+      confirm: 'Destroy the deck?'
+    edit:
+      title: 'Edit deck'
+  mailers:
+    cards:
+      pending_cards:
+        subject: 'You have pending cards'
+  helpers:
+    submit:
+      create: "Save %{model}"
+      update: "Save %{model}"
+      user:
+        create: "Sign up"
   activerecord:
-      errors:
-        messages:
-          blank: 'Fill out the field.'
-          too_short: 'Short value.'
-          confirmation: 'Values do not match.'
-          taken: 'Not a unique value.'
+    models:
+      card:
+        one: 'card'
+        other: 'cards'
+      user:
+        one: 'user'
+        other: 'users'
+      block:
+        one: 'deck'
+        other: 'decks'
+    errors:
+      messages:
+        blank: 'Fill out the field.'
+        too_short: 'Short value.'
+        confirmation: 'Values do not match.'
+        taken: 'Not a unique value.'
+      models:
+        block:
+          blank: 'You should fill the field.'
+        card:
+          attributes:
+            user_id:
+              blank: 'Association error.'
+            block_id:
+              blank: 'Choose the deck from the list.'
+            original_text:
+              duplicate_error: 'Input values should be different.'
+          blank: 'You should fill the field.'
+        user:
+          inclusion: 'Choose the locale from the list.'
+  messages:
+    user:
+      user_created: 'User was created.'
+      user_updated: 'User profile was updated successfully.'
+    block:
+      fill_field: 'You should fill the field.'

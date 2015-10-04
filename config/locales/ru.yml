@@ -1,4 +1,5 @@
 ru:
+  app_title: 'Флэшкарточкер'
   welcome: 'Добро пожаловать.'
   original_text_label: 'Оригинал'
   translated_text_label: 'Перевод'
@@ -10,8 +11,8 @@ ru:
   email_label: 'E-mail'
   password_label: 'Пароль'
   password_confirmation_label: 'Подтверждение пароля'
-  sing_up_label: 'Зарегистрироваться'
-  sing_in_label: 'Вход'
+  sign_up_label: 'Зарегистрироваться'
+  sign_in_label: 'Вход'
   log_in_label: 'Войти'
   all_decks_label: 'Все колоды'
   add_deck_label: 'Добавить колоду'
@@ -35,13 +36,83 @@ ru:
   log_in_is_successful_provider_notice: "Вход из аккаунта %{provider} выполнен успешно."
   log_out_is_successful_notice: 'Выход выполнен успешно.'
   log_out_failed_provider_alert: "Вход из аккаунта %{provider.titleize} не выполнен ."
+  record_not_found_alert: 'Вы обратились к несуществующей записи.'
+  user_destroy_notice: 'Пользователь успешно удален.'
   please_log_in: 'Пожалуйста авторизуйтесь.'
-
+  profile:
+    title: 'Профиль'
+    locale: 'Локаль'
+    locale_prompt: 'Выберите локаль'
+    password: 'Пароль'
+    password_confirmation: 'Подтверждение пароля'
+    save: 'Сохранить'
+  cards:
+    new:
+      title: 'Добавить карточку'
+    edit:
+      title: 'Редактировать карточку'
+    index:
+      original_text: 'Оригинал'
+      translated_text: 'Перевод'
+      review_date: 'Пересмотр'
+      edit_card: 'Редактировать'
+      delete_card: 'Удалить'
+      confirm: 'Удалить карточку?'
+  blocks:
+    new:
+      title: 'Добавить колоду'
+    index:
+      name: 'Название'
+      make_current: 'Сделать текущей'
+      make_usual: 'Сделать обычной'
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      confirm: 'Удалить колоду?'
+    edit:
+      title: 'Редактировать колоду'
+  mailers:
+    cards:
+      pending_cards:
+        subject: 'У вас есть непроверенные карточки'
+  helpers:
+    submit:
+      create: "Сохранить %{model}"
+      update: "Сохранить %{model}"
+      user:
+        create: 'Зарегистрироваться'
+  messages:
+    user:
+      user_created: 'Пользователь успешно удален.'
+      user_updated: 'Профиль пользователя успешно удален.'
   activerecord:
+    models:
+      card:
+        one: 'карточку'
+        other: 'карточки'
+      user:
+        one: 'пользователя'
+        other: 'пользователей'
+      block:
+        one: 'колоду'
+        other: 'колоды'
     errors:
       messages:
         blank: 'Заполните поле.'
         too_short: 'Короткое значение.'
         confirmation: 'Значения не совпадают.'
-        taken: 'Не уникальное значение.'
-        invalid: 'Не верный формат.'
+        taken: 'Неуникальное значение.'
+        invalid: 'Неверный формат.'
+      models:
+        block:
+          blank: 'Необходимо заполнить поле.'
+        card:
+          attributes:
+            user_id:
+              blank: 'Ошибка ассоциации.'
+            block_id:
+              blank: 'Выберите колоду из выпадающего списка.'
+            original_text:
+              duplicate_error: 'Вводимые значения должны отличаться.'
+          blank: 'Необходимо заполнить поле.'
+        user:
+          inclusion: 'Выберите локаль из выпадающего списка.'

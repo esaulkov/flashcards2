@@ -17,8 +17,7 @@ class ApplicationController < ActionController::Base
 
     if locale && I18n.available_locales.include?(locale.to_sym)
       session[:locale] = I18n.locale = locale
-    else
-      session[:locale] = I18n.locale = I18n.default_locale
+      logger.debug "* Locale set to '#{I18n.locale}'"
     end
   end
 
